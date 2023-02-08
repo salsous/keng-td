@@ -1,0 +1,43 @@
+name: Ixia-c-DUT-FRR
+topology:
+  nodes:
+    Ixia-c-Controller:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-controller:0.0.1-3724
+      cmd: --accept-eula --http-port 8443
+      ports:
+        - 8443:8443
+    Ixia-c-Traffic-Engine-1:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      exec:
+        - ip address add 192.0.2.1/30 dev eth1
+        - ip route   add 192.0.2.4/30 via 192.0.2.2
+      env:
+        OPT_LISTEN_PORT:  5551
+        ARG_IFACE_LIST:   virtual@af_packet,eth1
+        OPT_NO_HUGEPAGES: Yes
+        OPT_NO_PINNING:   Yes
+        WAIT_FOR_IFACE:   Yes
+    Ixia-c-Traffic-Engine-2:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      exec:
+        - ip address add 192.0.2.5/30 dev eth2
+        - ip route   add 192.0.2.0/30 via 192.0.2.6
+      env:
+        OPT_LISTEN_PORT:  5552
+        ARG_IFACE_LIST:   virtual@af_packet,eth2
+        OPT_NO_HUGEPAGES: Yes
+        OPT_NO_PINNING:   Yes
+        WAIT_FOR_IFACE:   Yes
+    DUT:
+      kind:  linux
+      image: frrouting/frr:v8.2.2
+      binds:
+      - ./lab1-DUT-FRR-daemons:/etc/frr/daemons
+      - ./lab1-DUT-FRR-config1:/etc/frr/frr.conf
+
+  links:
+    - endpoints: ["Ixia-c-Traffic-Engine-1:eth1","DUT:eth1"]
+    - endpoints: ["Ixia-c-Traffic-Engine-2:eth2","DUT:eth2"]
