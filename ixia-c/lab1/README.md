@@ -21,4 +21,6 @@ Git clone repo to get all needed files below
 ```
 
 - Check running containers
--- docker ps
+```html
+docker ps
+```
