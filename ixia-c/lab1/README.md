@@ -32,10 +32,10 @@ export OTG_LOCATION_P2="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552"
 ``` 
 - Use the JQ tool to parse the output of the Container Lab topology file and extract all the relevant MAC addresses.
 ```html
-TE1SMAC=`cat /root/lab-06/clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
-TE1DMAC=`cat /root/lab-06/clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
-TE2SMAC=`cat /root/lab-06/clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
-TE2DMAC=`cat /root/lab-06/clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
+TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
+TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
+TE2SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
+TE2DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
 ``` 
 - Verify that all information has been extracted correctly from the Container Lab topology file.
 ```html
@@ -46,7 +46,7 @@ echo $TE2DMAC
 ``` 
 - Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 125000 --count 1000000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
+otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 100 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
 otgen transform --metrics port --counters bytes | \
 otgen display --mode table
