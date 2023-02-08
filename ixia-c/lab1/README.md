@@ -17,8 +17,7 @@ Git clone repo to get all needed files below
 - cd ./ixia-c/lab1
 - cat lab1-clab-topology.yml
 ```html
-<p> 
-  sudo containerlab deploy -t lab1-clab-topology.yml </p>
+  sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
 
 - Check running containers
