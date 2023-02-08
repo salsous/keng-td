@@ -15,9 +15,9 @@ Git clone repo to get all needed files
 
 
 - cd ./ixia-c/lab1
-- cat lab1-clab-topology.yml
+-- cat lab1-clab-topology.yml
 
-- sudo containerlab deploy -t lab1-clab-topology.yml
+-- sudo containerlab deploy -t lab1-clab-topology.yml
 
 - Check running containers
-- docker ps
+-- docker ps
