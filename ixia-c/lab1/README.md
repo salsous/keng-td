@@ -25,4 +25,4 @@ Git clone repo to get all needed files below
 docker ps
 ```
 ## References
-[https://github.com/open-traffic-generator](#OTG)
+[https://github.com/open-traffic-generator](#https://github.com/open-traffic-generator)
