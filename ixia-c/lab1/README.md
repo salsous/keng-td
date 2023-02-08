@@ -24,5 +24,12 @@ Git clone repo to get all needed files below
 ```html
 docker ps
 ```
+- Prepare the OTGEN CLI tool with correct environment parameters
+```html
+export OTG_API="https://clab-Ixia-c-DUT-FRR-Ixia-c-Controller:8443"
+export OTG_LOCATION_P1="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-1:5551"
+export OTG_LOCATION_P2="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552"
+``` 
+
 ## References
 [open-taffic-generator] :https://github.com/open-traffic-generator
