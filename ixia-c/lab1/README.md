@@ -14,9 +14,10 @@ Git clone repo to get all needed files below
 - 4- lab1-test-script.py.
 
 ## Start Lab1
+- cd ./ixia-c/lab1
+- cat lab1-clab-topology.yml
 ```html
-<p> cd ./ixia-c/lab1
-   cat lab1-clab-topology.yml
+<p> 
   sudo containerlab deploy -t lab1-clab-topology.yml </p>
 ```
 
