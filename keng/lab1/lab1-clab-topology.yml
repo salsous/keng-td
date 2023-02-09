@@ -1,1 +1,59 @@
 
+name: keng-DUT-FRR
+topology:
+  nodes:
+    KENG-Controller:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-controller:latest
+      cmd: --accept-eula --http-port 8443
+      ports:
+        - 8443:8443
+    KENG-Traffic-Engine-1:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      exec:
+        - ip address add 192.168.1.10/24 dev veth0
+        - ip route   add 192.168.2.0/24 via 192.168.2.1
+      env:
+        OPT_LISTEN_PORT:  5551,50071
+        ARG_IFACE_LIST:   virtual@af_packet,veth0
+        OPT_NO_HUGEPAGES: Yes
+        OPT_NO_PINNING:   Yes
+        WAIT_FOR_IFACE:   Yes
+    KENG-Protocol-Engine-1:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/licensed/ixia-c-protocol-engine:latest
+      network-mode: container:KENG-Traffic-Engine-1
+      startup-delay: 20
+      env:
+        ARG_IFACE_LIST:   virtual@af_packet,veth0
+    KENG-Traffic-Engine-2:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      exec:
+        - ip address add 192.168.2.20/24 dev veth2
+        - ip route   add 192.168.1.0/24 via 192.168.1.1
+      env:
+        OPT_LISTEN_PORT:  5552,50072
+        ARG_IFACE_LIST:   virtual@af_packet,veth2
+        OPT_NO_HUGEPAGES: Yes
+        OPT_NO_PINNING:   Yes
+        WAIT_FOR_IFACE:   Yes
+    KENG-Protocol-Engine-2:
+      kind:  linux
+      image: ghcr.io/open-traffic-generator/licensed/ixia-c-protocol-engine:latest
+      network-mode: container:KENG-Traffic-Engine-2
+      startup-delay: 20
+      env:
+        ARG_IFACE_LIST:   virtual@af_packet,veth2
+    DUT:
+      kind:  linux
+      image: frrouting/frr:v8.2.2
+      binds:
+      - /root/Keng-td/Lab2/lab2-DUT-FRR-daemons:/etc/frr/daemons
+      - /root/Keng-td/Lab2/lab2-DUT-FRR-config1:/etc/frr/frr.conf
+      - /root/Keng-td/Lab2/lab2-DUT-FRR-config2:/etc/frr/vtysh.conf
+
+  links:
+    - endpoints: ["KENG-Traffic-Engine-1:veth0","DUT:eth1"]
+    - endpoints: ["KENG-Traffic-Engine-2:veth2","DUT:eth2"]
