@@ -51,7 +51,7 @@ echo $TE2DMAC
 ``` 
 - Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 100 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
+otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
 otgen transform --metrics port --counters bytes | \
 otgen display --mode table
