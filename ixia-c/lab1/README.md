@@ -11,7 +11,7 @@ Git clone repo to get all needed files below
 - 1- lab1-DUT-FRR-config1.
 - 2-lab1-DUT-FRR-daemons.
 - 3-lab1-clab-topology.yml.
-- 4- lab1-test-script.py.
+- 4-OTGEN CLi client
 
 ## Start Lab1
 - Clone the repo
