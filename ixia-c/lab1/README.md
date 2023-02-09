@@ -51,12 +51,13 @@ echo $TE2DMAC
 ``` 
 - Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
+otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
 otgen transform --metrics port --counters bytes | \
 otgen display --mode table
 ``` 
-- Verify results.
+- Verify results. You should have seen 2000 packets sent and 2000 recieved.
+
 ## References
 - [open-taffic-generator] :https://github.com/open-traffic-generator
 - [OTG-Example] :https://github.com/open-traffic-generator/otg-examples/tree/main/clab/ixia-c-te-frr
