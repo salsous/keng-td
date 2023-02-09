@@ -1,4 +1,4 @@
-# Lab #2A – KENG + OTGEN CLI + CONTAINER LAB + FRR DUT + BGP
+# Lab #1 – KENG + OTGEN CLI + CONTAINER LAB + FRR DUT + BGP
 
 ## Description
 This lab introduces the concept of Network Topology Emulation via the Container Lab software. This software is in charge of container orchestration (similar to Docker Compose) and also takes care of the underlying network connections (equivalent to creating virtual point-to-point Ethernet interfaces).
