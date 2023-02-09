@@ -1,5 +1,5 @@
 
-# Lab #1B – IXIA-C + SNAPPI + CONTAINER LAB + FRR DUT
+# Lab #2 – IXIA-C + SNAPPI + CONTAINER LAB + FRR DUT
 
 ## Description
 This lab introduces the concept of Network Topology Emulation via the Container Lab software. This software is in charge of container orchestration (similar to Docker Compose) and also takes care of the underlying network connections (equivalent to creating virtual point-to-point Ethernet interfaces).
