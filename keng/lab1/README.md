@@ -7,21 +7,21 @@ This lab uses OTGEN CLI (OTG API Client) to control the KENG Commercial Edition 
 
 ## Prerequites 
 Git clone repo to get all needed files below
-- 1- lab2-DUT-FRR-config1.
-- 2-lab2-DUT-FRR-daemons.
-- 3-lab2-clab-topology.yml.
-- 4- lab2-test-script.py.
+- 1- lab1-DUT-FRR-config1.
+- 2-lab1-DUT-FRR-daemons.
+- 3-lab1-clab-topology.yml.
+- 4- lab1-test-script.py.
 
 ## Start Lab1
 - Clone the repo
 ```html
 git clone https://github.com/salsous/keng-td.git
 ``` 
-- cd ./ixia-c/lab2
+- cd ./keng/lab1
 - cat lab1-clab-topology.yml
 
 ```html
-  sudo containerlab deploy -t lab2-clab-topology.yml 
+  sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
 
 - Check running containers
