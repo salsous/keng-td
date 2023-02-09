@@ -3,13 +3,13 @@ topology:
   nodes:
     Ixia-c-Controller:
       kind:  linux
-      image: ghcr.io/open-traffic-generator/ixia-c-controller:0.0.1-3724
+      image: ghcr.io/open-traffic-generator/ixia-c-controller:0.0.1-3768
       cmd: --accept-eula --http-port 8443
       ports:
         - 8443:8443
     Ixia-c-Traffic-Engine-1:
       kind:  linux
-      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.29
       exec:
         - ip address add 192.0.2.1/30 dev eth1
         - ip route   add 192.0.2.4/30 via 192.0.2.2
@@ -21,7 +21,7 @@ topology:
         WAIT_FOR_IFACE:   Yes
     Ixia-c-Traffic-Engine-2:
       kind:  linux
-      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:latest
+      image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.29
       exec:
         - ip address add 192.0.2.5/30 dev eth2
         - ip route   add 192.0.2.0/30 via 192.0.2.6
