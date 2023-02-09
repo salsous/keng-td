@@ -1,4 +1,4 @@
-# Welcome to Keysight network emulation Test Drive.  
+# Welcome to Keysight network emulation Test Drive
 
 ## Description
 For the next hour, you will explore the power of Keysight test tools to validate modern data center networks in a software world. This Test Drive will include both the free version "Ixia-c" and the commerial version "KENG". This lab introduces the concept of Network Topology Emulation via the Container Lab software.
