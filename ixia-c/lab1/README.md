@@ -59,4 +59,4 @@ otgen display --mode table
 - Verify results.
 ## References
 - [open-taffic-generator] :https://github.com/open-traffic-generator
-- [OTG-EXample] :https://github.com/open-traffic-generator/otg-examples/tree/main/clab/ixia-c-te-frr
+- [OTG-Example] :https://github.com/open-traffic-generator/otg-examples/tree/main/clab/ixia-c-te-frr
