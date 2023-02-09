@@ -14,8 +14,13 @@ Git clone repo to get all needed files below
 - 4- lab1-test-script.py.
 
 ## Start Lab1
+- Clone the repo
+```html
+git clone https://github.com/salsous/keng-td.git
+``` 
 - cd ./ixia-c/lab1
 - cat lab1-clab-topology.yml
+
 ```html
   sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
