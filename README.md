@@ -13,7 +13,6 @@ In this Test Drive, we will run four labs: two using the Ixia-c tool and two usi
 ## Accessing the KENG Test Drive
 - Please visit this URL ( Cooming Soon!!!).
 
-![clip-12](https://user-images.githubusercontent.com/13612422/218149575-a5b2f2a9-17c3-4677-bba2-597e0ef4a1b8.png)
 
 ## References
 - [open-taffic-generator] :https://github.com/open-traffic-generator
