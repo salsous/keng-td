@@ -13,7 +13,7 @@ Git clone repo to get all needed files below
 - 3-lab1-clab-topology.yml.
 - 4-OTGEN CLi client
 
-## Diagram
+## LAB Diagram
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/clab/ixia-c-te-frr/diagram.png "Lab Topology")
 
 ## Network Diagram
