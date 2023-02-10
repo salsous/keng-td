@@ -50,7 +50,7 @@ TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].ma
 echo $TE1SMAC
 echo $TE1DMAC
 ``` 
-- Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
+- Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
 otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
