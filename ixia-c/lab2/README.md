@@ -43,7 +43,7 @@ python lab2-test-script.py
 - Verify results.
 - Cleanup Lab
 ```html
-sudo containerlab deploy -t lab2-clab-topology.yml
+sudo containerlab destroy -t lab2-clab-topology.yml
 ``` 
 - Verify no more running containers
 ```html
