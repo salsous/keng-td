@@ -13,7 +13,7 @@ Git clone repo to get all needed files below
 - 4- lab1-test-script.py.
 
 ## Diagram
-![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/diagram.png "Logo Title Text 1")
+![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/diagram.png "Lab Topology")
 
 ## Start Lab1
 - Clone the repo
