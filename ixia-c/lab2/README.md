@@ -15,7 +15,7 @@ This lab uses SNAPPI(Test scripts written in snappi, an auto-generated Python mo
 
 ## Start Lab2
 ```html
-cd keng-td/ixia-c/lab2
+cd ../lab2
 sudo containerlab deploy -t lab2-clab-topology.yml 
 ``` 
 - Check running containers
