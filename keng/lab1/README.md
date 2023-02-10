@@ -10,7 +10,7 @@ Git clone repo to get all needed files below
 - 1- lab1-DUT-FRR-config1.
 - 2-lab1-DUT-FRR-daemons.
 - 3-lab1-clab-topology.yml.
-- 4- lab1-test-script.py.
+- 4- OTGEN CLi client.
 
 ## LAB Diagram
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/diagram.png "Lab Topology")
