@@ -58,6 +58,9 @@ otgen transform --metrics port --counters bytes | \
 otgen display --mode table
 ``` 
 - Verify results. You should have seen 2000 packets sent and 2000 recieved.
+- 
+![lab1-results](https://user-images.githubusercontent.com/13612422/218182775-1083eca6-b11a-4ce6-abcb-4fded75e9f19.png)
+-
 - Cleanup Lab
 ```html
 sudo containerlab destroy -t lab1-clab-topology.yml
