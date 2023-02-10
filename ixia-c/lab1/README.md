@@ -52,12 +52,12 @@ echo $TE1DMAC
 ``` 
 - Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
+otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
 otgen transform --metrics port --counters bytes | \
 otgen display --mode table
 ``` 
-- Verify results. You should have seen 2000 packets sent and 2000 recieved.
+- Verify results. You should have seen 512000 packets sent and 512000 recieved.
 - 
 ![lab1-results](https://user-images.githubusercontent.com/13612422/218182775-1083eca6-b11a-4ce6-abcb-4fded75e9f19.png)
 -
