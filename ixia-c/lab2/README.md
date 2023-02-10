@@ -36,6 +36,13 @@ echo $TE1DMAC
 echo $TE2SMAC
 echo $TE2DMAC
 ``` 
+- Update the test script with the correct MAC addresses
+```html
+sed -i "s/00:AA:00:00:01:00/$TE1SMAC/g" lab2-test-script.py
+sed -i "s/00:AA:00:00:02:00/$TE1DMAC/g" lab2-test-script.py
+sed -i "s/00:AA:00:00:03:00/$TE2SMAC/g" lab2-test-script.py
+sed -i "s/00:AA:00:00:04:00/$TE2DMAC/g" lab2-test-script.py
+```
 - Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
 python lab2-test-script.py
