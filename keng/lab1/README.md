@@ -12,8 +12,12 @@ Git clone repo to get all needed files below
 - 3-lab1-clab-topology.yml.
 - 4- lab1-test-script.py.
 
-## Diagram
+## LAB Diagram
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/diagram.png "Lab Topology")
+-
+
+## Network Diagram
+![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/ip-diagram.png "Network Topology")
 
 ## Start Lab1
 - Clone the repo
