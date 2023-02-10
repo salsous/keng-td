@@ -16,14 +16,20 @@ Uses the same setup as in Lab1A.
 ## Start Lab1
 - Clone the repo
 ```html
-git clone https://github.com/salsous/keng-td.git
+cd keng-td/ixia-c/lab2
+sudo containerlab deploy -t lab1-clab-topology.yml 
 ``` 
-- cd ./ixia-c/lab2
-- 
 - Check running containers
 ```html
 docker ps
 ```
+- Use the JQ tool to parse the output of the Container Lab topology file and extract all the relevant MAC addresses.
+```html
+TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
+TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
+TE2SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
+TE2DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
+``` 
 - Verify that all information has been extracted correctly from the Container Lab topology file.
 ```html
 echo $TE1SMAC
@@ -36,3 +42,11 @@ echo $TE2DMAC
 python lab2-test-script.py
 ``` 
 - Verify results.
+- Cleanup Lab
+```html
+sudo containerlab deploy -t lab2-clab-topology.yml
+``` 
+- Verify no more running containers
+```html
+docker ps
+```
