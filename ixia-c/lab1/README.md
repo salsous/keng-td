@@ -38,15 +38,11 @@ export OTG_LOCATION_P2="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552"
 ```html
 TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
 TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
-TE2SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
-TE2DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
 ``` 
 - Verify that all information has been extracted correctly from the Container Lab topology file.
 ```html
 echo $TE1SMAC
 echo $TE1DMAC
-echo $TE2SMAC
-echo $TE2DMAC
 ``` 
 - Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
@@ -56,6 +52,14 @@ otgen transform --metrics port --counters bytes | \
 otgen display --mode table
 ``` 
 - Verify results. You should have seen 2000 packets sent and 2000 recieved.
+- Cleanup Lab
+```html
+sudo containerlab deploy -t lab1-clab-topology.yml
+``` 
+- Verify no more running containers
+```html
+docker ps
+```
 
 ## References
 - [open-taffic-generator] :https://github.com/open-traffic-generator
