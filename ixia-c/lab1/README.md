@@ -16,6 +16,9 @@ Git clone repo to get all needed files below
 ## Diagram
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/clab/ixia-c-te-frr/diagram.png "Lab Topology")
 
+## Network Diagram
+![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/clab/ixia-c-te-frr/ip-diagram.png) "Network Topology")
+
 ## Start Lab1
 - Clone the repo
 ```html
