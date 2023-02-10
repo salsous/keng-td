@@ -7,17 +7,16 @@ This lab uses SNAPPI(Test scripts written in snappi, an auto-generated Python mo
 
 
 ## Prerequites 
-Uses the same setup as in Lab1A.
-- 1- lab1-DUT-FRR-config1.
-- 2-lab1-DUT-FRR-daemons.
-- 3-lab1-clab-topology.yml.
+
+- 1-lab2-DUT-FRR-config1.
+- 2-lab2-DUT-FRR-daemons.
+- 3-lab2-clab-topology.yml.
 - 4- lab2-test-script.py
 
-## Start Lab1
-- Clone the repo
+## Start Lab2
 ```html
 cd keng-td/ixia-c/lab2
-sudo containerlab deploy -t lab1-clab-topology.yml 
+sudo containerlab deploy -t lab2-clab-topology.yml 
 ``` 
 - Check running containers
 ```html
