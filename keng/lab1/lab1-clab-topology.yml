@@ -50,9 +50,8 @@ topology:
       kind:  linux
       image: frrouting/frr:v8.2.2
       binds:
-      - /root/Keng-td/Lab2/lab2-DUT-FRR-daemons:/etc/frr/daemons
-      - /root/Keng-td/Lab2/lab2-DUT-FRR-config1:/etc/frr/frr.conf
-      - /root/Keng-td/Lab2/lab2-DUT-FRR-config2:/etc/frr/vtysh.conf
+      - ./lab1-DUT-FRR-config1:/etc/frr/frr.conf
+      - ./lab1-DUT-FRR-daemons:/etc/frr/daemons
 
   links:
     - endpoints: ["KENG-Traffic-Engine-1:veth0","DUT:eth1"]
