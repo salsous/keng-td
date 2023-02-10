@@ -18,10 +18,9 @@ Git clone repo to get all needed files below
 ```html
 git clone https://github.com/salsous/keng-td.git
 ``` 
-- cd ./ixia-c/lab1
-- cat lab1-clab-topology.yml
 
 ```html
+  cd keng-td/ixia-c/lab1
   sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
 
