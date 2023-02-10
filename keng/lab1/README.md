@@ -12,6 +12,9 @@ Git clone repo to get all needed files below
 - 3-lab1-clab-topology.yml.
 - 4- lab1-test-script.py.
 
+## Diagram
+![alt text](https://github.com/open-traffic-generator/otg-examples/tree/main/docker-compose/cpdp-frr "Logo Title Text 1")
+
 ## Start Lab1
 - Clone the repo
 ```html
