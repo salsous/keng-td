@@ -14,7 +14,6 @@ Git clone repo to get all needed files below
 - 4-OTGEN CLi client
 
 ## Diagram
-Inline-style: 
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/clab/ixia-c-te-frr/diagram.png "Logo Title Text 1")
 
 ## Start Lab1
