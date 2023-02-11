@@ -52,7 +52,7 @@ echo $TE1DMAC
 ``` 
 - Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
+otgen create flow -s 198.51.100.10 -d 203.0.113.10 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
 otgen run --insecure --metrics port --interval 250ms | \
 otgen transform --metrics port --counters bytes | \
 otgen display --mode table
