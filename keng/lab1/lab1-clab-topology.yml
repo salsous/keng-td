@@ -29,7 +29,7 @@ topology:
       network-mode: container:KENG-Traffic-Engine-1
       startup-delay: 5
       env:
-        INTF_LIST: veth0: 
+        INTF_LIST: veth0
     KENG-Traffic-Engine-2:
       kind:  linux
       image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.24
