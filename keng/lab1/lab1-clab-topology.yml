@@ -18,7 +18,7 @@ topology:
         - ip address add 192.168.1.10/24 dev veth0
         - ip route   add 192.168.2.0/24 via 192.168.2.1
       env:
-        OPT_LISTEN_PORT:  5555,50071
+        OPT_LISTEN_PORT:  5555
         ARG_IFACE_LIST:   virtual@af_packet,veth0
         OPT_NO_HUGEPAGES: Yes
         OPT_NO_PINNING:   Yes
@@ -40,7 +40,7 @@ topology:
         - ip address add 192.168.2.20/24 dev veth2
         - ip route   add 192.168.1.0/24 via 192.168.1.1
       env:
-        OPT_LISTEN_PORT:  5556,50072
+        OPT_LISTEN_PORT:  5556
         ARG_IFACE_LIST:   virtual@af_packet,veth2
         OPT_NO_HUGEPAGES: Yes
         OPT_NO_PINNING:   Yes
