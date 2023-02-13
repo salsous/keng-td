@@ -33,8 +33,9 @@ topology:
     KENG-Traffic-Engine-2:
       kind:  linux
       image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.24
-      - 5556:5556
-      - 50072:50071
+      ports:
+        - 5556:5556
+        - 50072:50071
       exec:
         - ip address add 192.168.2.20/24 dev veth2
         - ip route   add 192.168.1.0/24 via 192.168.1.1
