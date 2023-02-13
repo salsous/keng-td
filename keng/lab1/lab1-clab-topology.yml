@@ -1,58 +1,57 @@
-
-name: keng-DUT-FRR
+name: keng
 topology:
   nodes:
-    KENG-Controller:
+    controller:
       kind:  linux
       image: ghcr.io/open-traffic-generator/ixia-c-controller:0.0.1-3724
       cmd: --accept-eula --http-port 8443
       ports:
         - 8443:8443
-    KENG-Traffic-Engine-1:
+    te1:
       kind:  linux
       image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.24
       ports:
         - 5555:5555
         - 50071:50071
       exec:
-        - ip address add 192.168.1.10/24 dev veth0
+        - ip address add 192.168.1.10/24 dev eth1
         - ip route   add 192.168.2.0/24 via 192.168.2.1
       env:
         OPT_LISTEN_PORT:  5555
-        ARG_IFACE_LIST:   virtual@af_packet,veth0
+        ARG_IFACE_LIST:   virtual@af_packet,eth1
         OPT_NO_HUGEPAGES: Yes
         OPT_NO_PINNING:   Yes
         WAIT_FOR_IFACE:   Yes
-    KENG-Protocol-Engine-1:
+    pe1:
       kind:  linux
       image: ghcr.io/open-traffic-generator/licensed/ixia-c-protocol-engine:1.00.0.256
-      network-mode: container:KENG-Traffic-Engine-1
+      network-mode: container:te1
       startup-delay: 5
       env:
-        INTF_LIST: veth0
-    KENG-Traffic-Engine-2:
+        INTF_LIST: eth0
+    te2:
       kind:  linux
       image: ghcr.io/open-traffic-generator/ixia-c-traffic-engine:1.6.0.24
       ports:
         - 5556:5556
         - 50072:50071
       exec:
-        - ip address add 192.168.2.20/24 dev veth2
+        - ip address add 192.168.2.20/24 dev eth2
         - ip route   add 192.168.1.0/24 via 192.168.1.1
       env:
         OPT_LISTEN_PORT:  5556
-        ARG_IFACE_LIST:   virtual@af_packet,veth2
+        ARG_IFACE_LIST:   virtual@af_packet,eth2
         OPT_NO_HUGEPAGES: Yes
         OPT_NO_PINNING:   Yes
         WAIT_FOR_IFACE:   Yes
-    KENG-Protocol-Engine-2:
+    pe2:
       kind:  linux
       image: ghcr.io/open-traffic-generator/licensed/ixia-c-protocol-engine:1.00.0.256
-      network-mode: container:KENG-Traffic-Engine-2
+      network-mode: container:te2
       startup-delay: 5
       env:
-        INTF_LIST: veth2
-    DUT:
+        INTF_LIST: eth2
+    dut:
       kind:  linux
       image: frrouting/frr:v8.2.2
       binds:
@@ -60,5 +59,5 @@ topology:
       - ./lab1-DUT-FRR-daemons:/etc/frr/daemons
 
   links:
-    - endpoints: ["KENG-Traffic-Engine-1:veth0","DUT:veth1"]
-    - endpoints: ["KENG-Traffic-Engine-2:veth2","DUT:veth3"]
+    - endpoints: ["te1:eth1","dut:eth1"]
+    - endpoints: ["te2:eth2","dut:eth3"]
