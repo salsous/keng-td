@@ -48,7 +48,7 @@ topology:
       kind:  linux
       image: ghcr.io/open-traffic-generator/licensed/ixia-c-protocol-engine:1.00.0.256
       network-mode: container:KENG-Traffic-Engine-2
-      startup-delay: 20
+      startup-delay: 5
       env:
         ARG_IFACE_LIST:   virtual@af_packet,veth2
     DUT:
