@@ -5,11 +5,11 @@ hostname frr
 no ipv6 forwarding
 log stdout
 !
-interface veth1
+interface eth1
  ip address 192.0.2.2/30
 exit
 !
-interface veth3
+interface eth3
  ip address 192.0.2.6/30
 exit
 !
