@@ -66,8 +66,8 @@ def Traffic_Test():
     eth2.src.value, eth2.dst.value = "00:AA:00:00:03:00", "00:AA:00:00:04:00"
 
     # Configure source and destination IPv4 addresses
-    ip1.src.value, ip1.dst.value = "192.0.2.1", "192.0.2.5"
-    ip2.src.value, ip2.dst.value = "192.0.2.1", "192.0.2.5"
+    ip1.src.value, ip1.dst.value = "198.51.100.10", "203.0.113.10"
+    ip2.src.value, ip2.dst.value = "203.0.113.10", "198.51.100.10"
 
     # Configure UDP Ports Source as incrementing
     tcp1.src_port.increment.start = 5100
