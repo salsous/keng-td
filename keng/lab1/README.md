@@ -39,12 +39,12 @@ docker ps
 - Prepare the OTGEN CLI tool with correct environment parameters
 ```html
 export OTG_API="https://localhost:8443"
-otgen --log info run --insecure --file otg.json --json --rxbgp 2x --metrics flow | jq
+otgen --log info run --insecure --file lab1-test.json --json --rxbgp 2x --metrics flow | jq
 
 ``` 
 - To format output as a table, use the modified command below.
 ```html
-otgen run --insecure --file otg.json --json --rxbgp 2x --metrics flow | otgen transform --metrics flow | otgen display --mode table
+otgen run --insecure --file lab1-test.json --json --rxbgp 2x --metrics flow | otgen transform --metrics flow | otgen display --mode table
 ``` 
 
 - Verify results.
