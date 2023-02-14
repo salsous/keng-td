@@ -14,8 +14,8 @@ topology:
         - 5555:5555
         - 50071:50071
       exec:
-        - ip address add 192.168.1.10/24 dev eth1
-        - ip route   add 192.168.2.0/24 via 192.168.2.1
+        - ip address add 192.0.2.1/30 dev eth1
+        - ip route   add 198.51.100.0/24 192.0.2.1
       env:
         OPT_LISTEN_PORT:  5555
         ARG_IFACE_LIST:   virtual@af_packet,eth1
@@ -36,8 +36,8 @@ topology:
         - 5556:5556
         - 50072:50071
       exec:
-        - ip address add 192.168.2.20/24 dev eth2
-        - ip route   add 192.168.1.0/24 via 192.168.1.1
+        - ip address add 192.0.2.5/30 dev eth2
+        - ip route   add  203.0.113.0/24 192.0.2.5
       env:
         OPT_LISTEN_PORT:  5556
         ARG_IFACE_LIST:   virtual@af_packet,eth2
