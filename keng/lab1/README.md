@@ -37,32 +37,26 @@ docker ps
 ```
 - Prepare the OTGEN CLI tool with correct environment parameters
 ```html
-export OTG_API="https://clab-Ixia-c-DUT-FRR-Ixia-c-Controller:8443"
-export OTG_LOCATION_P1="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-1:5551"
-export OTG_LOCATION_P2="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552"
+export OTG_API="https://localhost:8443"
+otgen --log info run --insecure --file otg.json --json --rxbgp 2x --metrics flow | jq
+
 ``` 
-- Use the JQ tool to parse the output of the Container Lab topology file and extract all the relevant MAC addresses.
+- To format output as a table, use the modified command below.
 ```html
-TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
-TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
-TE2SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
-TE2DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
+otgen run --insecure --file otg.json --json --rxbgp 2x --metrics flow | otgen transform --metrics flow | otgen display --mode table
 ``` 
-- Verify that all information has been extracted correctly from the Container Lab topology file.
-```html
-echo $TE1SMAC
-echo $TE1DMAC
-echo $TE2SMAC
-echo $TE2DMAC
-``` 
-- Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
-```html
-otgen create flow -s 192.0.2.1 -d 192.0.2.5 -p 80 --rate 100 --count 2000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
-otgen run --insecure --metrics port --interval 250ms | \
-otgen transform --metrics port --counters bytes | \
-otgen display --mode table
-``` 
+
 - Verify results.
+
+- Cleanup Lab
+```html
+sudo containerlab destroy -t lab1-clab-topology.yml
+``` 
+- Verify no more running containers
+```html
+docker ps
+```
+
 ## References
 - [open-taffic-generator] :https://github.com/open-traffic-generator
 - [OTG-Example] :https://github.com/open-traffic-generator/otg-examples/tree/main/docker-compose/cpdp-frr
