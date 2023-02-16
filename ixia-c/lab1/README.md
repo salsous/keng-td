@@ -21,10 +21,8 @@ Git clone repo to get all needed files below
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/clab/ixia-c-te-frr/ip-diagram.png "Network Topology")
 
 ## Start Lab1
-- Clone the repo
-```html
-git clone https://github.com/salsous/keng-td.git
-``` 
+- This test drive already Cloned the repo and has all the needed files.
+
 - Create Lab topology using Containerlab
 ```html
   cd keng-td/ixia-c/lab1
@@ -35,30 +33,12 @@ git clone https://github.com/salsous/keng-td.git
 ```html
 docker ps
 ```
-- Prepare the OTGEN CLI tool with correct environment parameters
-```html
-export OTG_API="https://clab-Ixia-c-DUT-FRR-Ixia-c-Controller:8443"
-export OTG_LOCATION_P1="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-1:5551"
-export OTG_LOCATION_P2="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552"
-``` 
-- Use the JQ tool to parse the output of the Container Lab topology file and extract all the relevant MAC addresses.
-```html
-TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
-TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
-```
-- Verify that all information has been extracted correctly from the Container Lab topology file.
-```html
-echo $TE1SMAC
-echo $TE1DMAC
-``` 
+- Lab1-A: Send undirectional traffic: Port-1 to Dut to Port-2
 - Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-otgen create flow -s 198.51.100.10 -d 203.0.113.10 -p 80 --rate 1000 --count 1000 --size 512 --smac $TE1SMAC --dmac $TE1DMAC | \
-otgen run --insecure --metrics port --interval 250ms | \
-otgen transform --metrics port --counters bytes | \
-otgen display --mode table
+source lab1-undirectional.sh
 ``` 
-- Verify results. You should have seen 512000 packets sent and 512000 recieved.
+- Verify results. You should have seen 2000 frames sent and 2000 recieved.
 - 
 ![lab1-results](https://user-images.githubusercontent.com/13612422/218182775-1083eca6-b11a-4ce6-abcb-4fded75e9f19.png)
 -
