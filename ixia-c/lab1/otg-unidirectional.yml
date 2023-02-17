@@ -58,3 +58,4 @@ ports:
 - location: clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-1:5551
   name: p1
 - location: clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-2:5552
+  name: p2
