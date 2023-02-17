@@ -40,7 +40,7 @@ source lab2-test-bidirectional.sh
 ``` 
 - Verify results;  2000 frames sent and 2000 recieved
 -
-![lab1-bi-dir](https://user-images.githubusercontent.com/13612422/219531506-30442ec3-cab2-47eb-b7b7-fcb1f881ae19.png)
+![lab2-bi-dir](https://user-images.githubusercontent.com/13612422/219690160-9404eb44-efb7-464e-bad7-26e1e42ac144.png)
 -
 - Cleanup Lab
 ```html
