@@ -7,11 +7,7 @@ This lab uses OTGEN CLI (OTG API Client) to control the free Ixia-c Community Ed
 
 
 ## Prerequites 
-Git clone repo to get all needed files below
-- 1- lab1-DUT-FRR-config1.
-- 2-lab1-DUT-FRR-daemons.
-- 3-lab1-clab-topology.yml.
-- 4-OTGEN CLi client
+None! All files and images are included.
 
 ## Lab Topology
 ![Network-topo1](https://user-images.githubusercontent.com/13612422/218280411-7504d9ce-e6ce-483e-9e8d-ce7791d2edb2.png)
