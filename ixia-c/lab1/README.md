@@ -36,7 +36,7 @@ docker ps
 ### Lab1-A: Send undirectional traffic: Port-1 to Dut to Port-2
 - Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-source lab1-undirectional.sh
+source lab1-test-unidirectional.sh
 ``` 
 - Verify results. You should have seen 2000 frames sent and 2000 recieved.
 - 
@@ -45,7 +45,7 @@ source lab1-undirectional.sh
 ### Lab1-B: Send bidirectional traffic: Port-1 <-> Port-2
 - Use otgen cli to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-source lab1-bidirectional.sh
+source lab1-test-bidirectional.sh
 ``` 
 - Verify results. You should have seen 2000 frames sent and 2000 recieved.
 - 
