@@ -31,7 +31,7 @@ source lab2-test-unidirectional.sh
 ``` 
 - Verify results; 1000 frames sent and 1000 recieved.
 - 
-![lab1-uni-dir](https://user-images.githubusercontent.com/13612422/219531107-089e2a71-ce54-4a46-b267-9641a2a51c66.png)
+![lab2-uni-dir](https://user-images.githubusercontent.com/13612422/219709266-2f893236-0503-44d3-bf8b-4d8c8271c25f.png)
 -
 ### Lab1-B: : Send bidirectional traffic: Port-1 <-> Port-2
 - Using SNAPPI Script to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
