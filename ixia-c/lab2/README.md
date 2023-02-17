@@ -7,47 +7,41 @@ This lab uses SNAPPI(Test scripts written in snappi, an auto-generated Python mo
 
 
 ## Prerequites 
-
-- 1-lab2-DUT-FRR-config1.
-- 2-lab2-DUT-FRR-daemons.
-- 3-lab2-clab-topology.yml.
-- 4- lab2-test-script.py
+None! All files and images are included.
 
 ## Start Lab2
+- This test drive already Cloned the repo and has all the needed files.
+
+- Create Lab topology using Containerlab
 ```html
-cd ../lab2
-sudo containerlab deploy -t lab2-clab-topology.yml 
-``` 
+  cd keng-td/ixia-c/lab2
+```
+```html
+  sudo containerlab deploy -t lab2-clab-topology.yml 
+  ```
+
 - Check running containers
 ```html
 docker ps
 ```
-- Use the JQ tool to parse the output of the Container Lab topology file and extract all the relevant MAC addresses.
+### Lab1-A: Send undirectional traffic: Port-1 to Dut to Port-2
+- Using SNAPPI Script to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-TE1SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["a"].mac'`
-TE1DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[0]["z"].mac'`
-TE2SMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["a"].mac'`
-TE2DMAC=`cat ./clab-Ixia-c-DUT-FRR/topology-data.json | jq -r '.links[1]["z"].mac'`
+source lab2-test-unidirectional.sh
 ``` 
-- Verify that all information has been extracted correctly from the Container Lab topology file.
+- Verify results; 1000 frames sent and 1000 recieved.
+- 
+![lab1-uni-dir](https://user-images.githubusercontent.com/13612422/219531107-089e2a71-ce54-4a46-b267-9641a2a51c66.png)
+-
+### Lab1-B: : Send bidirectional traffic: Port-1 <-> Port-2
+- Using SNAPPI Script to execute the test with the updated MAC addresses and the IP addresses used to create the raw traffic flows.
 ```html
-echo $TE1SMAC
-echo $TE1DMAC
-echo $TE2SMAC
-echo $TE2DMAC
+source lab2-test-bidirectional.sh
 ``` 
-- Update the test script with the correct MAC addresses
-```html
-sed -i "s/00:AA:00:00:01:00/$TE1SMAC/g" lab2-test-script.py
-sed -i "s/00:AA:00:00:02:00/$TE1DMAC/g" lab2-test-script.py
-sed -i "s/00:AA:00:00:03:00/$TE2SMAC/g" lab2-test-script.py
-sed -i "s/00:AA:00:00:04:00/$TE2DMAC/g" lab2-test-script.py
-```
-- Execute the test script using the correct MAC addresses and the IP addresses used to create the raw traffic flows.
-```html
-python lab2-test-script.py
-``` 
-- Verify results.
+- Verify results;  2000 frames sent and 2000 recieved
+-
+![lab1-bi-dir](https://user-images.githubusercontent.com/13612422/219531506-30442ec3-cab2-47eb-b7b7-fcb1f881ae19.png)
+-
 - Cleanup Lab
 ```html
 sudo containerlab destroy -t lab2-clab-topology.yml
