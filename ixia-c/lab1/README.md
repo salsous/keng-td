@@ -22,8 +22,10 @@ None! All files and images are included.
 - Create Lab topology using Containerlab
 ```html
   cd keng-td/ixia-c/lab1
-  sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
+```html
+  sudo containerlab deploy -t lab1-clab-topology.yml 
+  ```
 
 - Check running containers
 ```html
