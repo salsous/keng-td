@@ -6,11 +6,37 @@ This lab uses SNAPPI  to control the KENG Commercial Edition (OTG Test Tool) whi
 
 
 ## Prerequites 
-Git clone repo to get all needed files below
-- 1- lab2-DUT-FRR-config1.
-- 2-lab2-DUT-FRR-daemons.
-- 3-lab2-clab-topology.yml.
-- 4- lab2-test-script.py.
+None! All files and images are included.
 
-## Start Lab1
-- Clone the repo
+## Start Lab2
+- This test drive already Cloned the repo and has all the needed files.
+
+- Create Lab topology using Containerlab
+```html
+  cd keng-td/ixia-c/lab2
+```
+```html
+  sudo containerlab deploy -t lab2-clab-topology.yml 
+  ```
+
+- Check running containers
+```html
+docker ps
+```
+### Lab2: Send undirectional traffic: Port-1 to Dut to Port-2
+- Using SNAPPI Script to execute the test with the updated MAC addresses and the IP addresses we got from the dynamic traffic flows.
+```html
+source lab2-test-unidirectional.sh
+``` 
+- Verify results; 1000 frames sent and 1000 recieved.
+- 
+![lab2-uni-dir](https://user-images.githubusercontent.com/13612422/219709266-2f893236-0503-44d3-bf8b-4d8c8271c25f.png)
+-
+- Cleanup Lab
+```html
+sudo containerlab destroy -t lab2-clab-topology.yml
+``` 
+- Verify no more running containers
+```html
+docker ps
+```
