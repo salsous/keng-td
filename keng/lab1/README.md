@@ -6,12 +6,7 @@ This lab uses OTGEN CLI (OTG API Client) to control the KENG Commercial Edition 
 
 
 ## Prerequites 
-Git clone repo to get all needed files below
-- 1- lab1-DUT-FRR-config1.
-- 2-lab1-DUT-FRR-daemons.
-- 3-lab1-clab-topology.yml.
-- 4- OTGEN CLi client.
-- 5- lab1-test.json
+None! All files and images are included.
 
 ## LAB Diagram
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/diagram.png "Lab Topology")
@@ -21,13 +16,12 @@ Git clone repo to get all needed files below
 ![alt text](https://github.com/open-traffic-generator/otg-examples/blob/main/docker-compose/cpdp-frr/ip-diagram.png "Network Topology")
 
 ## Start Lab1
-- Clone the repo
-```html
-git clone https://github.com/salsous/keng-td.git
-``` 
-- cd ./keng/lab1
-- cat lab1-clab-topology.yml
+- This test drive already Cloned the repo and has all the needed files.
 
+Create Lab topology using Containerlab
+```html
+cd keng-td/keng/lab1
+``` 
 ```html
   sudo containerlab deploy -t lab1-clab-topology.yml 
 ```
@@ -36,18 +30,18 @@ git clone https://github.com/salsous/keng-td.git
 ```html
 docker ps
 ```
-- Prepare the OTGEN CLI tool with correct environment parameters
+
+### Lab1: Send undirectional traffic: Port-1 to Dut to Port-2
+- Use otgen cli to execute the test with the updated MAC addresses and the IP addresses we got fron the dynamic traffic flows.
 ```html
-export OTG_API="https://localhost:8443"
-otgen --log info run --insecure --file lab1-test.json --json --rxbgp 2x --metrics flow | jq
+source lab1-test-unidirectional.sh
 
 ``` 
-- To format output as a table, use the modified command below.
-```html
-otgen run --insecure --file lab1-test.json --json --rxbgp 2x --metrics flow | otgen transform --metrics flow | otgen display --mode table
-``` 
 
-- Verify results.
+- Verify results;  1000 frames sent and 1000 recieved.
+-
+![keng-otg-lab1](https://user-images.githubusercontent.com/13612422/220150196-af800f6d-7bd8-42fb-a884-412add793c1f.png)
+-
 
 - Cleanup Lab
 ```html
