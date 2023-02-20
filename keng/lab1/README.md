@@ -32,7 +32,7 @@ docker ps
 ```
 
 ### Lab1: Send undirectional traffic: Port-1 to Dut to Port-2
-- Use otgen cli to execute the test with the updated MAC addresses and the IP addresses we got fron the dynamic traffic flows.
+- Use otgen cli to execute the test with the updated MAC addresses and the IP addresses we got from the dynamic traffic flows.
 ```html
 source lab1-test-unidirectional.sh
 
