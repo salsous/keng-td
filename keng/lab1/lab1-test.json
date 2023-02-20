@@ -193,7 +193,7 @@
       "duration":  {
         "choice":  "fixed_packets",
         "fixed_packets":  {
-           "packets":  3600000,
+           "packets":  1000,
           "gap":  12
         }
       },
@@ -202,7 +202,7 @@
         "loss":  false,
         "timestamps":  false
       },
-      "name":  "f1"
+      "name":  "P1->P2"
     }
   ]
 }
