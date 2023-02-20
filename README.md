@@ -5,10 +5,17 @@ For the next hour, you will explore the power of Keysight test tools to validate
 In this Test Drive, we will run four labs: two using the Ixia-c tool and two using KENG "Keysight Elastic Network Generator".
 
 ### Ixia-c/Lab1: IXIA-C + OTGEN CLI + CONTAINER LAB + FRR DUT - Data only
-### Ixia-c/Lab2: IXIA-C + SNAPPI + CONTAINER LAB + FRR DUT - Data only
+- Lab1-A: Send undirectional traffic: Port-1 to Dut to Port-2
+- Lab1-B: Send bidirectional traffic: Port-1 <-> Port-2
 
+### Ixia-c/Lab2: IXIA-C + SNAPPI + CONTAINER LAB + FRR DUT - Data only
+- Lab2-A: Send undirectional traffic: Port-1 to Dut to Port-2
+- Lab2-B: Send bidirectional traffic: Port-1 <-> Port-2
 ### KENG/Lab1: KENG + OTGEN CLI + CONTAINER LAB + FRR DUT - Data + BGP Protocol
+- Lab1: Send undirectional traffic: Port-1 to Dut to Port-2
+
 ### KENG/Lab2: KENG + SNAPPI + CONTAINER LAB + FRR DUT - Data + BGP Protocol
+- Lab2: Send undirectional traffic: Port-1 to Dut to Port-2
 -
 
 ## Accessing the KENG Test Drive
