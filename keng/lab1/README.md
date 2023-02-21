@@ -32,7 +32,7 @@ docker ps
 ```
 
 ### Lab1: Send undirectional traffic: Port-1 to Dut to Port-2
-- Use otgen cli to execute the test. Step one is to start the BGP routing protocol and peer with the FRR DUT. Then advertise few routes then run traffic.
+- Use otgen cli to execute the test. Step one is to load the json configurations. Next start the BGP routing protocol and peer with the FRR DUT. Then advertise few routes and finally run traffic.
 ```html
 source lab1-test-unidirectional.sh
 
