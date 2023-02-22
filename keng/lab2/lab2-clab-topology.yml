@@ -49,8 +49,8 @@ topology:
       kind:  linux
       image: frrouting/frr:v8.2.2
       binds:
-      - ./lab1-DUT-FRR-config1:/etc/frr/frr.conf
-      - ./lab1-DUT-FRR-daemons:/etc/frr/daemons
+      - ./lab2-DUT-FRR-config1:/etc/frr/frr.conf
+      - ./lab2-DUT-FRR-daemons:/etc/frr/daemons
 
   links:
     - endpoints: ["te1:eth1","dut:eth1"]
