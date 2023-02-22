@@ -1,8 +1,8 @@
-# Lab #2 – KENG + SNAPPI + CONTAINER LAB + FRR DUT + BGP
+# Lab #2 – KENG + CURL JSON + CONTAINER LAB + FRR DUT + BGP
 
 ## Description
 This lab introduces the concept of Network Topology Emulation via the Container Lab software. This software is in charge of container orchestration (similar to Docker Compose) and also takes care of the underlying network connections (equivalent to creating virtual point-to-point Ethernet interfaces).
-This lab uses SNAPPI  to control the KENG Commercial Edition (OTG Test Tool) which is utilized to send raw traffic through a FRR DUT. This lab consists of 1x Controller container, 2x keng Traffic Engine containers, 2x keng protocol engine and 1x FRR container.
+This lab uses CURL JSON  to control the KENG Commercial Edition (OTG Test Tool) which is utilized to send dynamic traffic through a FRR DUT. This lab consists of 1x Controller container, 2x keng Traffic Engine containers, 2x keng protocol engine and 1x FRR container.
 
 
 ## Prerequites 
@@ -13,7 +13,7 @@ None! All files and images are included.
 
 - Create Lab topology using Containerlab
 ```html
-  cd keng-td/ixia-c/lab2
+  cd keng-td/keng/lab2
 ```
 ```html
   sudo containerlab deploy -t lab2-clab-topology.yml 
@@ -24,14 +24,26 @@ None! All files and images are included.
 docker ps
 ```
 ### Lab2: Send undirectional traffic: Port-1 to Dut to Port-2
-- Using SNAPPI Script to execute the test with the updated MAC addresses and the IP addresses we got from the dynamic traffic flows.
+- Using CURL JSON to execute the test with the updated MAC addresses and the IP addresses we got from the dynamic traffic flows.
+- Load the test configurations
 ```html
-source lab2-test-unidirectional.sh
+source lab2-test-apply-config.sh
 ``` 
-- Verify results; 1000 frames sent and 1000 recieved.
-- 
-![lab2-uni-dir](https://user-images.githubusercontent.com/13612422/219709266-2f893236-0503-44d3-bf8b-4d8c8271c25f.png)
--
+- The output of "warning" is OK.
+- Start BGP Protocol 
+```html
+source lab2-test-start-protocol.sh
+``` 
+- verify bgp neighbor established; you can exec to the DUT and check bgp 
+- Start transmitting data 1000 PPS for 100K frame 
+```html
+source lab2-test-start-traffic.sh
+```
+- Check results;  hit cntl+c to exit
+```html
+source lab2-test-show-results.sh
+
+```
 - Cleanup Lab
 ```html
 sudo containerlab destroy -t lab2-clab-topology.yml
