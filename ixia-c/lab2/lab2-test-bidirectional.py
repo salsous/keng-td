@@ -62,7 +62,7 @@ def Traffic_Test():
     eth2, ip2, tcp2 = flow2.packet[0], flow2.packet[1], flow2.packet[2]
 
     # Configure source and destination MAC addresses
-    eth1.src.value, eth1.dst.value = "00:AA:00:00:01:00:, "00:AA:00:00:02:00"
+    eth1.src.value, eth1.dst.value = "00:AA:00:00:01:00", "00:AA:00:00:02:00"
     eth2.src.value, eth2.dst.value = "00:AA:00:00:03:00", "00:AA:00:00:04:00"
 
     # Configure source and destination IPv4 addresses
