@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-LabDir="/home/ubuntu/keng-td/keng"
+LabDir="/home/$USER/keng-td/keng"
 LabId="lab2"
 export OTG_API="https://localhost:8443"
 #
