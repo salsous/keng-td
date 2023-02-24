@@ -1,5 +1,5 @@
 #!/bin/bash -xe
-LabDir="/home/centos/keng-td/ixia-c"
+LabDir="/home/$USER/keng-td/ixia-c"
 LabId="lab1"
 export OTG_API="https://clab-Ixia-c-DUT-FRR-Ixia-c-Controller:8443"
 export OTG_LOCATION_P1="clab-Ixia-c-DUT-FRR-Ixia-c-Traffic-Engine-1:5551"
