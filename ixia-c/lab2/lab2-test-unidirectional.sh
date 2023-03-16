@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 python3 -m venv keng
 source ./keng/bin/activate
-pip install snappi==0.10.8 --quiet
+pip install snappi==0.10.9 --quiet
 LabDir="/home/$USER/keng-td/ixia-c"
 LabId="lab2"
 TrafficEngine1SrcMac=$(jq .links[0].a.mac $LabDir/$LabId/clab-Ixia-c-DUT-FRR/topology-data.json --raw-output)
